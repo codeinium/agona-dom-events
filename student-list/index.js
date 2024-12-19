@@ -1,12 +1,15 @@
-const nameInput = document.getElementById("name-input")
 let nameInputValue
+let groupInputValue 
+
+const nameInput = document.getElementById("name-input")
 const groupInput = document.getElementById("group-input")
-let groupInputValue
 const dataTable = document.getElementById("data-table")
 const dataTableBody = dataTable.querySelector("tbody")
 const addButton = document.getElementById("add-btn")
 const errorDiv = document.querySelector(".error")
 const clearButton = document.getElementById("clear-btn")
+const formData = document.getElementById("data-form")
+
 errorDiv.style.display = "none"
 
 nameInput.addEventListener("input", (e) => {
@@ -47,18 +50,15 @@ function clearInputs() {
   groupInput.value = ""
 }
 
-addButton.addEventListener("click", (e) => {
+formData.addEventListener("submit", (e) => {
+  e.preventDefault()
   if (nameInputValue && groupInputValue) {
     errorDiv.style.display = "none"
-
     createTableRow()
-
     clearInputs()
-
     Array.from(document.querySelectorAll(".remove-btn")).forEach((item) => {
       addListenerRemoveButton(item)
     })
-
   } else {
     errorDiv.style.display = "block"
   }

@@ -14,6 +14,11 @@
         th, td {
             border: 1px solid #333;
             padding: 5px 10px;
+            align-items: center;
+        }
+
+        body > button { 
+            margin-top: 10px;
         }
 
         button {
@@ -28,18 +33,19 @@
 <body>
 <h2>Добавление записей в таблицу</h2>
 
-<form id="data-form" action="#" onsubmit="return false;">
-    <label for="name-input">Имя:</label>
+<form id="data-form" ">
+    <label for="name-input"> Имя: </label>
     <input type="text" id="name-input">
-    <label for="group-input">Группа:</label>
+    <label for="group-input"> Группа: </label>
     <input type="text" id="group-input">
+    <button id="add-btn"> Добавить </button>   
 </form>
 
+<button id="clear-btn">Очистить все</button>
 <div class="error">Все поля обязательны к заполнению</div>
 
 <br>
-<button id="add-btn">Добавить</button>
-<button id="clear-btn">Очистить все</button>
+
 
 <table id="data-table">
     <thead>
